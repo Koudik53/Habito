@@ -25,6 +25,7 @@ export interface Habit {
   createdAt: string;
   
   // New Features
+  category?: string; // New Category Field
   targetStreak?: number; // Legacy/Quick access Goal: e.g., Reach 30 days
   goal?: HabitGoal; // Flexible Goal System
   journal: JournalEntry[];
@@ -35,6 +36,7 @@ export interface AppSettings {
   darkMode: boolean;
   soundEnabled: boolean;
   animationsEnabled: boolean;
+  customLogo?: string | null;
 }
 
 export type ViewState = 'today' | 'add' | 'progress' | 'settings' | 'habit-detail';

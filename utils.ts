@@ -90,6 +90,10 @@ export const COMMON_EMOJIS = [
   '💻', '🎨', '🎸', '🧹', '📝', '🥗', '🚶', '🌱'
 ];
 
+export const CATEGORIES = [
+  'Health', 'Fitness', 'Productivity', 'Learning', 'Mindfulness', 'Finance', 'Social', 'Creativity', 'Other'
+];
+
 export const MOTIVATIONAL_QUOTES = [
   "Consistency is what transforms average into excellence.",
   "Success is the sum of small efforts, repeated day in and day out.",
