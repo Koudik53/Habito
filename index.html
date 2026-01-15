@@ -69,12 +69,13 @@
     
     <!-- Polyfill process.env for Netlify Environment Variables -->
     <script>
+      // This shim allows the app to access process.env.API_KEY in the browser.
+      // On Netlify, use "Snippet Injection" to inject a script tag before this one:
+      // <script>window.NETLIFY_ENV = { API_KEY: "your-secret-key" }</script>
       window.process = {
         env: {
           NODE_ENV: 'production',
-          // This allows code accessing process.env.API_KEY to work in the browser.
-          // On Netlify, you can inject this value using Snippet Injection or a build plugin.
-          API_KEY: '' 
+          API_KEY: (window.NETLIFY_ENV && window.NETLIFY_ENV.API_KEY) || ''
         }
       };
     </script>
