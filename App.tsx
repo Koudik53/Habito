@@ -1,0 +1,48 @@
+import React from 'react';
+import { HabitProvider, useHabitContext } from './context/HabitContext';
+import { BottomNav } from './components/BottomNav';
+import { TodayView } from './views/TodayView';
+import { AddHabitView } from './views/AddHabitView';
+import { ProgressView } from './views/ProgressView';
+import { SettingsView } from './views/SettingsView';
+import { HabitDetailView } from './views/HabitDetailView';
+
+const AppContent: React.FC = () => {
+  const { currentView } = useHabitContext();
+
+  const renderView = () => {
+    switch (currentView) {
+      case 'today':
+        return <TodayView />;
+      case 'add':
+        return <AddHabitView />;
+      case 'progress':
+        return <ProgressView />;
+      case 'settings':
+        return <SettingsView />;
+      case 'habit-detail':
+        return <HabitDetailView />;
+      default:
+        return <TodayView />;
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans selection:bg-brand-500 selection:text-white">
+      <main className="min-h-screen relative mx-auto w-full md:max-w-md bg-white dark:bg-gray-900 shadow-2xl md:min-h-[800px] md:my-8 md:rounded-[40px] md:overflow-hidden md:border-8 md:border-gray-800 overflow-y-auto no-scrollbar">
+        {renderView()}
+        <BottomNav />
+      </main>
+    </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <HabitProvider>
+      <AppContent />
+    </HabitProvider>
+  );
+};
+
+export default App;

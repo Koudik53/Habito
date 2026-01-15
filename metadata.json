@@ -1,0 +1,5 @@
+{
+  "name": "Habito",
+  "description": "A clean, modern, and fun mobile-first habit tracker that focuses on simplicity and aesthetics. Features streak tracking, detailed insights, and persistent local storage.",
+  "requestFramePermissions": []
+}
